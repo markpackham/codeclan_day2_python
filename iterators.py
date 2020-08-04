@@ -30,3 +30,7 @@ machine = LotterMachine()
 # it has an iter and next so we can loop through it
 for number in machine:
     print(number)
+
+# What would have been the next number of our lottery machine
+next_value = next(iter(machine))
+print("The next number will be " + str(next_value))
