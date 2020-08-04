@@ -33,4 +33,7 @@ with open("employees.csv", "w") as csvfile:
     writer.writerow(["first_name", "last_name", "hourly_rate", "hours_worked", "amount_due"])
 
     for employee in employees:
+        employee.hourly_rate = float(employee.hourly_rate)
+        employee.hours_worked = float(employee.hours_worked)
+        employee.amount_due = employee.hourly_rate * employee.hours_worked
         writer.writerow(employee.values())
