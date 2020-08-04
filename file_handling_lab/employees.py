@@ -21,7 +21,7 @@ with open("employees.csv", "r") as csvfile:
         current_employee = Employee(*row)
         employees.append(employees)
 
-with open("employees.csv", "a") as csvfile:
+with open("employees.csv", "a", newline='') as csvfile:
     writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
     employee = Employee("Jenny","Jones",12.50,40,0)
     writer.writerow(employee.values())
