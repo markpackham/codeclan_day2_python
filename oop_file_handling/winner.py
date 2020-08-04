@@ -47,7 +47,7 @@ with open("oscars.csv", "r") as csvfile:
 #     # writer.writerow([winner.index, winner.year, winner.age, winner.name, winner.movie])
 #     writer.writerow(winner.values())
 
-# always read "r" before write, "w"
+# always read "r" before write, "w" and store the data before you manipulate it
 with open("oscars.csv", "w") as csvfile:
     writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
@@ -56,4 +56,5 @@ with open("oscars.csv", "w") as csvfile:
     for winner in winners:
         # make winners a bit older
         winner.age += 1
+        winner.name = winner.name.upper()
         writer.writerow(winner.values())
