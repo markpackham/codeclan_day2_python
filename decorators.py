@@ -73,3 +73,24 @@ def ordinary(name):
 # The hidden name is Mark
 # I am an ordinary function
 ordinary()
+
+
+import time
+# goal to measure how long a function takes to do stuff
+def timing_function(callback):
+    def wrapper():
+        start_time = time.time()
+        callback()
+        end_time = time.time()
+        print(f"Time it took to run the function: {end_time - start_time} \n")
+    return wrapper
+
+@timing_function
+def my_function():
+    numbers = []
+    for number in range(0,10000):
+        numbers.append(number)
+    
+    print("Sum of all the numbers: {sum(numbers)}")
+
+my_function()
