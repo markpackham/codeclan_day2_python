@@ -55,7 +55,14 @@ def make_pretty(callback):
         callback(name)
     return wrapper
 
+def do_twice(callback):
+    def wrapper():
+        callback() #ordinary()
+        callback() #ordinary()
+    return wrapper
+
 # The annotator @
+@do_twice
 @make_pretty # == decorated_ordinary = make_pretty(ordinary)
 def ordinary(name):
     print(f"The hidden name is {name}") # grab name from make_pretty's callback
