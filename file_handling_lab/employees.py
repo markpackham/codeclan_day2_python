@@ -5,7 +5,7 @@ class Employee:
         self.first_name = first_name
         self.last_name = last_name
         self.hourly_rate = float(hourly_rate)
-        self.hours_worked = float(hours_worked)
+        self.hours_worked = int(hours_worked)
         self.amount_due = float(amount_due)
     
     def values(self):
@@ -35,6 +35,6 @@ with open("employees.csv", "w") as csvfile:
     writer.writerow(["first_name", "last_name", "hourly_rate", "hours_worked", "amount_due"])
 
     for employee in employees:
-        amount_due = 100.10
+        amount_due = float(employee.hourly_rate) * int(employee.hours_worked)
         new_employee = Employee(employee.first_name, employee.last_name, employee.hourly_rate, employee.hours_worked, amount_due)
         writer.writerow(new_employee)
