@@ -7,6 +7,9 @@ class Winner:
         self.age = int(age)
         self.name = name
         self.movie = movie
+    
+    def values(self):
+        return [self.index, self.year, self.age, self.name, self.movie]
 
 winners = []
 
@@ -41,4 +44,5 @@ with open("oscars.csv","a") as csvfile:
     # quoting is a keyword
     writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
     winner = Winner(count, 2020, 50, "Renne Zellweger", "Judy")
-    writer.writerow([winner.index, winner.year, winner.age, winner.name, winner.movie])
+    # writer.writerow([winner.index, winner.year, winner.age, winner.name, winner.movie])
+    writer.writerow(winner.values())
