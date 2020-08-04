@@ -13,20 +13,18 @@ class Employee:
 
 employees = []
 
-with open("employees.csv", "a", newline='') as csvfile:
-    writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-    employee = Employee("Jenny","Jones","12.50","40","0")
-    writer.writerow(employee.values())
-
-
 with open("employees.csv", "r") as csvfile:
     next(csvfile)
-    reader = csv.reader(csvfile)
+    reader = csv.reader(csvfile, skipinitialspace=True)
 
     for row in reader:
         current_employee = Employee(*row)
         employees.append(current_employee)
 
+with open("employees.csv", "a", newline='') as csvfile:
+    writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+    employee = Employee("Jenny","Jones","12.50","40","0")
+    writer.writerow(employee.values())
 
 with open("employees.csv", "w") as csvfile:
     writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
@@ -35,5 +33,4 @@ with open("employees.csv", "w") as csvfile:
     writer.writerow(["first_name", "last_name", "hourly_rate", "hours_worked", "amount_due"])
 
     for employee in employees:
-        employee.amount_due = "1000"
         writer.writerow(employee.values())
