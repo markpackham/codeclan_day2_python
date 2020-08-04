@@ -1,10 +1,9 @@
-class Car:
-    def __init__(self, make, model, top_speed):
-        self.make = make
-        self.model = model
-        self.top_speed = top_speed
-    def start(self):
-        return "Vrooom vroom!"
+from vehicle import *
 
-new_car = Car("Racey","Ford",300)
-print(new_car.start())
+class Car(Vehicle):
+    def __init__(self, model):
+        Vehicle.__init__(self, 4)
+        self.model = model
+
+    def get_model(self):
+        return self.model
