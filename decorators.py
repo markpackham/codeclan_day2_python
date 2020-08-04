@@ -22,24 +22,47 @@
 # outer_function()
 # # can't call inner function directly (as close as we get to a private function in python)
 
-def ordinary():
-    print("I am an ordinary function")
 
-def meow():
-    print("Meow meow meow")
 
+# def ordinary():
+#     print("I am an ordinary function")
+
+# def meow():
+#     print("Meow meow meow")
+
+# def make_pretty(callback):
+#     def wrapper():
+#         print("I am decorated now!")
+#         callback()
+#     return wrapper
+
+# pretty = make_pretty(ordinary)
+# pretty_random = make_pretty(meow)
+
+# print("Run ordinary()")
+# ordinary()
+# print("Run pretty()")
+# pretty()
+# print("Run pretty_random()")
+# pretty_random()
+
+
+# Use of decorator (works like annotations in Java that use @)
 def make_pretty(callback):
     def wrapper():
+        name = "Mark"
         print("I am decorated now!")
-        callback()
+        callback(name)
     return wrapper
 
-pretty = make_pretty(ordinary)
-pretty_random = make_pretty(meow)
+# The annotator @
+@make_pretty # == decorated_ordinary = make_pretty(ordinary)
+def ordinary(name):
+    print(f"The hidden name is {name}") # grab name from make_pretty's callback
+    print("I am an ordinary function")
 
-print("Run ordinary()")
+# Outputs
+# I am decorated now!
+# The hidden name is Mark
+# I am an ordinary function
 ordinary()
-print("Run pretty()")
-pretty()
-print("Run pretty_random()")
-pretty_random()
