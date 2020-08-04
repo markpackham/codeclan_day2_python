@@ -15,3 +15,7 @@ list_of_event_numbers.append(100000)
 print(list_of_event_numbers)
 
 # LAZY evaluations improve performances, only evaulate something when needed
+
+# Lists (like ArrayLists) offer flexability in size however aren't great for performance
+# Generators lack flexability, they have fixed sizes but they offer better performance
+# Look for yield keyword to help you spot generators (although generators aren't commonly used)
