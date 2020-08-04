@@ -17,9 +17,14 @@ with open("oscars.csv", "r") as csvfile:
     # skipinitialspace strip out whitespace
     reader = csv.reader(csvfile, skipinitialspace=True)
 
+    # for row in reader:
+    #     #print(row)
+    #     current_winner = Winner(row[0], row[1],row[2],row[3],row[4])
+    #     winners.append(current_winner)
+
     for row in reader:
-        #print(row)
-        current_winner = Winner(row[0], row[1],row[2],row[3],row[4])
+        # deconstruct with * then it doesn't matter how many rows we deal with
+        current_winner = Winner(*row)
         winners.append(current_winner)
     
 for winner in winners:
