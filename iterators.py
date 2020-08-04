@@ -20,7 +20,8 @@ class LotterMachine:
             raise StopIteration
         else:
             number = random.randint(1, 49)
-            # make sure we don't get duplicates
+            # make sure we don't get duplicates 
+            # (if we do we get None - so a While loop might be better than a For to avoid duplicates)
             if number not in self.numbers:
                 self.numbers.append(number)
                 return number
@@ -33,4 +34,4 @@ for number in machine:
 
 # What would have been the next number of our lottery machine
 next_value = next(iter(machine))
-print("The next number will be " + str(next_value))
+print("The next number will be " + str(next_value)
