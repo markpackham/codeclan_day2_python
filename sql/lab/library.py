@@ -62,7 +62,8 @@ insert_book("BookD", "AuthorD", 1807)
 insert_book("BookE", "AuthorD", 1808)
 insert_book("BookE2", "AuthorD", 1809)
 
-# Triple speech marks, """ lets your print entire paragraphs in tidy a formatted text style with line spacing
+# Triple speech marks, """ lets your print entire paragraphs in tidy a formatted text style with line spacing - it is called a doc string (it explains what it does)
+# You can make it a comment or an actual string simular to /* */ in JavaScript
 while True:
     print("""
     Select an option:
